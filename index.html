@@ -15,8 +15,28 @@
 <!-- EDIT: tagline -->
 <meta property="og:description" content="Knotless braids, wig installation and natural hair care in Osu, Accra. Book on WhatsApp or walk in — Monday to Saturday, 8am to 7pm.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20rx='22'%20fill='%23FF6B4A'/%3E%3Ctext%20x='50'%20y='72'%20font-family='system-ui,sans-serif'%20font-size='62'%20font-weight='800'%20fill='%231F1108'%20text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+
+<!-- Theme: set before CSS parses so there's no flash of the wrong theme -->
+<script>
+(function(){
+  try {
+    var t = localStorage.getItem('theme');
+    if (t !== 'light' && t !== 'dark') {
+      t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-theme', t);
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute('content', t === 'dark' ? '#120D09' : '#FFF8F0');
+  } catch (e) {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
+
 <style>
 :root{
+  color-scheme:light;
+
   /* Warm Accra palette — sunlit cream, deep cocoa, coral, sun */
   --cream:#FFF8F0;
   --cream-deep:#FFF1E3;
@@ -164,13 +184,14 @@ svg{max-width:100%;}
   box-shadow:0 10px 30px rgba(61,38,24,.08);
 }
 .nav{
-  position:relative;display:flex;align-items:center;justify-content:space-between;
-  gap:.75rem;min-height:3.7rem;max-width:var(--wrap);margin:0 auto;padding:.55rem 1.15rem;
+  position:relative;display:flex;align-items:center;
+  gap:.5rem;min-height:3.7rem;max-width:var(--wrap);margin:0 auto;padding:.55rem 1.15rem;
 }
 .brand{
   display:inline-flex;align-items:center;gap:.55rem;
   color:var(--ink);font-size:1.18rem;font-weight:800;letter-spacing:-.02em;
-  text-decoration:none;white-space:nowrap;
+  text-decoration:none;white-space:nowrap;flex:none;
+  margin-right:auto;
 }
 .brand-dot{
   width:9px;height:9px;border-radius:50%;background:var(--coral);
@@ -178,6 +199,25 @@ svg{max-width:100%;}
   animation:pulseDot 2.8s ease-out infinite;
 }
 .brand:hover .brand-dot{background:var(--coral-deep);}
+
+.nav-actions{
+  display:flex;align-items:center;gap:.5rem;flex:none;
+}
+
+.theme-toggle{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:40px;height:40px;padding:0;
+  background:transparent;
+  border:1.5px solid rgba(61,38,24,.28);border-radius:50%;
+  color:var(--ink);cursor:pointer;
+  transition:background-color .25s var(--ease),border-color .25s var(--ease),color .25s var(--ease),transform .15s var(--ease);
+  flex:none;
+}
+.theme-toggle svg{width:18px;height:18px;}
+.theme-toggle:hover{background:var(--sand);border-color:var(--coral);}
+.theme-toggle:active{transform:scale(.92);}
+.theme-toggle .icon-sun{display:none;}
+.theme-toggle .icon-moon{display:block;}
 
 .nav-toggle{
   display:inline-flex;align-items:center;gap:.5rem;
@@ -696,13 +736,20 @@ body.has-selection .fab{display:none;}
 .hero .rise:nth-child(4){animation-delay:.24s;}
 .hero .rise:nth-child(5){animation-delay:.32s;}
 
+/* ---------- Narrow phones (keeps the header tidy at 320px) ---------- */
+@media (max-width: 400px){
+  .nav-toggle-text{display:none;}
+  .nav-toggle{padding:.5rem .55rem;}
+  .brand{font-size:1.08rem;}
+}
+
 /* ---------- 640px ---------- */
 @media (min-width:640px){
   .nav-toggle{display:none;}
   .nav-links{
     position:static;display:flex;flex-direction:row;align-items:center;
     gap:.15rem;padding:0;background:transparent;border:0;box-shadow:none;
-    animation:none;
+    animation:none;flex:none;
   }
   .nav-links a{
     padding:.5rem .7rem;border:0;border-radius:8px;font-size:.92rem;
@@ -764,6 +811,79 @@ body.has-selection .fab{display:none;}
   .tile span{font-size:.85rem;padding:.42rem .95rem;}
 }
 
+/* ==================================================================
+   DARK THEME — activated by the data-theme attribute on <html>.
+   The inline script in <head> sets it before CSS parses, and the
+   theme toggle button updates it. No media query needed here — the
+   script reads the OS preference and sets the attribute.
+   ================================================================== */
+:root[data-theme="dark"]{
+  color-scheme:dark;
+
+  --cream:#120D09;
+  --cream-deep:#1A1310;
+  --sand:#221913;
+  --sand-deep:#2C2018;
+  --white:#1D150F;
+  --ink:#0A0705;
+  --cocoa:#F6EADB;
+  --cocoa-soft:#D6C1AE;
+  --muted:#A08875;
+  --line:#38281D;
+  --coral-soft:#3D1B14;
+  --sun-soft:#3D2C14;
+
+  --shadow-sm:0 4px 14px rgba(0,0,0,.5);
+  --shadow:0 10px 28px rgba(0,0,0,.55);
+  --shadow-lg:0 20px 46px rgba(0,0,0,.65);
+}
+
+:root[data-theme="dark"] .site-header{background:rgba(18,13,9,.85);}
+:root[data-theme="dark"] .site-header.is-scrolled{background:rgba(18,13,9,.97);}
+:root[data-theme="dark"] .nav-toggle{border-color:rgba(246,234,219,.28);}
+:root[data-theme="dark"] .nav-toggle:hover{background:rgba(246,234,219,.12);}
+
+:root[data-theme="dark"] .theme-toggle{
+  border-color:rgba(246,234,219,.28);
+  color:var(--cocoa);
+}
+:root[data-theme="dark"] .theme-toggle:hover{
+  background:rgba(246,234,219,.12);
+  border-color:var(--coral);
+}
+:root[data-theme="dark"] .theme-toggle .icon-sun{display:block;}
+:root[data-theme="dark"] .theme-toggle .icon-moon{display:none;}
+
+:root[data-theme="dark"] .brand,
+:root[data-theme="dark"] .hero h1,
+:root[data-theme="dark"] .section h2,
+:root[data-theme="dark"] .card h3,
+:root[data-theme="dark"] .nav-toggle,
+:root[data-theme="dark"] .qty-btn,
+:root[data-theme="dark"] .qty-count,
+:root[data-theme="dark"] .hours tbody th{color:var(--cocoa);}
+
+:root[data-theme="dark"] .nav-links a{color:var(--cocoa);}
+:root[data-theme="dark"] .nav-links a.is-active{color:var(--cocoa);}
+:root[data-theme="dark"] .nav-links a:hover{color:#FF8A5B;}
+
+:root[data-theme="dark"] .hero h1 em::after{opacity:.28;}
+
+:root[data-theme="dark"] .selection-bar{color:var(--cocoa);}
+:root[data-theme="dark"] .selection-total{color:var(--cocoa);}
+:root[data-theme="dark"] .selection-clear{color:var(--cocoa);border-color:rgba(246,234,219,.35);}
+:root[data-theme="dark"] .selection-clear:hover{background:rgba(246,234,219,.12);border-color:var(--cocoa);}
+:root[data-theme="dark"] .selection-book:focus-visible{outline-color:var(--cocoa);}
+:root[data-theme="dark"] .hours thead th{color:var(--cocoa);}
+:root[data-theme="dark"] .contact-card{color:var(--cocoa);}
+:root[data-theme="dark"] .contact-title{color:var(--cocoa);}
+:root[data-theme="dark"] .contact-card a:hover{color:#FFC9B8;}
+:root[data-theme="dark"] .tile span{color:#F6EADB;}
+:root[data-theme="dark"] .site-footer a:hover{color:var(--cocoa);}
+:root[data-theme="dark"] .fab{border-color:rgba(246,234,219,.9);}
+:root[data-theme="dark"] .qty-btn.qty-dec:hover:not(:disabled){color:var(--ink);}
+:root[data-theme="dark"] .scroll-cue:hover{color:#FF8A5B;}
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto;}
@@ -787,11 +907,6 @@ body.has-selection .fab{display:none;}
     <!-- EDIT: salon name -->
     <a class="brand" href="#top"><span class="brand-dot" aria-hidden="true"></span>Glow Studio</a>
 
-    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="nav-links">
-      <span class="nav-toggle-icon" aria-hidden="true"></span>
-      <span class="nav-toggle-text">Menu</span>
-    </button>
-
     <ul class="nav-links" id="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#gallery">Gallery</a></li>
@@ -799,6 +914,32 @@ body.has-selection .fab{display:none;}
       <li><a href="#hours">Hours</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="4" fill="currentColor"/>
+          <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="12" y1="2" x2="12" y2="4"/>
+            <line x1="12" y1="20" x2="12" y2="22"/>
+            <line x1="2" y1="12" x2="4" y2="12"/>
+            <line x1="20" y1="12" x2="22" y2="12"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </g>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" fill="currentColor"/>
+        </svg>
+      </button>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="nav-links">
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+        <span class="nav-toggle-text">Menu</span>
+      </button>
+    </div>
   </nav>
 </header>
 
@@ -1046,7 +1187,7 @@ body.has-selection .fab{display:none;}
   <div class="wrap footer-inner">
     <!-- EDIT: salon name -->
     <p class="footer-name">Glow Studio</p>
-    <p class="footer-copy">© 2025 Glow Studio · Osu, Accra</p>
+    <p class="footer-copy">© 2026 Glow Studio · Osu, Accra</p>
     <!-- EDIT: phone number -->
     <a href="https://wa.me/233246625602?text=Hello%20Glow%20Studio%2C%20I%20would%20like%20to%20book%20an%20appointment" data-wa-book target="_blank" rel="noopener">Book on WhatsApp</a>
   </div>
@@ -1081,6 +1222,46 @@ body.has-selection .fab{display:none;}
   var supportsIO = 'IntersectionObserver' in window;
 
   docEl.classList.add('js');
+
+  /* ==================================================================
+     Theme toggle
+     ================================================================== */
+  var themeToggle = document.getElementById('themeToggle');
+  var themeMeta = document.querySelector('meta[name="theme-color"]');
+
+  function applyTheme(theme) {
+    docEl.setAttribute('data-theme', theme);
+    if (themeMeta) themeMeta.setAttribute('content', theme === 'dark' ? '#120D09' : '#FFF8F0');
+    if (themeToggle) {
+      themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+  }
+
+  if (themeToggle) {
+    // Sync the aria-label with whatever theme the inline script applied
+    var initial = docEl.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    themeToggle.setAttribute('aria-label', initial === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+
+    themeToggle.addEventListener('click', function () {
+      var current = docEl.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      var next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      try { localStorage.setItem('theme', next); } catch (e) { /* ignore */ }
+    });
+  }
+
+  // Follow OS theme changes only when the user hasn't picked a theme manually
+  if (window.matchMedia) {
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+    var onSystemThemeChange = function (e) {
+      var stored = null;
+      try { stored = localStorage.getItem('theme'); } catch (err) {}
+      if (stored === 'light' || stored === 'dark') return;
+      applyTheme(e.matches ? 'dark' : 'light');
+    };
+    if (mq.addEventListener) mq.addEventListener('change', onSystemThemeChange);
+    else if (mq.addListener) mq.addListener(onSystemThemeChange);
+  }
 
   /* ==================================================================
      WhatsApp booking builder with quantities
@@ -1215,7 +1396,6 @@ body.has-selection .fab{display:none;}
     });
   }
 
-  /* Run once so every WhatsApp link carries the correct base message on load */
   refresh();
 
   /* ---------------- Mobile menu ---------------- */
@@ -1253,7 +1433,7 @@ body.has-selection .fab{display:none;}
     });
   }
 
-  /* ---------------- Header elevation on scroll (sentinel, not a scroll listener) ---------------- */
+  /* ---------------- Header elevation on scroll ---------------- */
   var header = document.getElementById('siteHeader');
   var sentinel = document.getElementById('top-sentinel');
   if (header && sentinel && supportsIO) {
