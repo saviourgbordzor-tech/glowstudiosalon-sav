@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en-GH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- EDIT: salon name (browser tab title) -->
+<title>Glow Studio — Hair Salon in Accra | Braids &amp; Wigs</title>
+<!-- EDIT: salon name / tagline (search + social preview) -->
+<meta name="description" content="Glow Studio is a hair salon in Accra for knotless braids, wig installation, relaxers, natural hair care and makeup. Book on WhatsApp or walk in, Mon–Sat.">
+<meta name="theme-color" content="#FFF8F0">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GH">
+<!-- EDIT: salon name -->
+<meta property="og:title" content="Glow Studio — Hair Salon in Accra">
+<!-- EDIT: tagline -->
+<meta property="og:description" content="Knotless braids, wig installation and natural hair care in Osu, Accra. Book on WhatsApp or walk in — Monday to Saturday, 8am to 7pm.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20rx='22'%20fill='%23FF6B4A'/%3E%3Ctext%20x='50'%20y='72'%20font-family='system-ui,sans-serif'%20font-size='62'%20font-weight='800'%20fill='%231F1108'%20text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  /* Warm Accra palette — sunlit cream, deep cocoa, coral, sun */
+  --cream:#FFF8F0;
+  --cream-deep:#FFF1E3;
+  --sand:#FFE7D2;
+  --sand-deep:#FFD4B0;
+  --ink:#1F1108;
+  --cocoa:#3D2618;
+  --cocoa-soft:#5A3A28;
+  --muted:#7A5748;
+  --coral:#FF6B4A;
+  --coral-deep:#E64D2E;
+  --coral-soft:#FFD9CF;
+  --sun:#FFC14A;
+  --sun-soft:#FFE8B8;
+  --line:#F2DFCC;
+  --white:#FFFFFF;
+
+  --radius:18px;
+  --wrap:1100px;
+  --shadow-sm:0 4px 14px rgba(61,38,24,.08);
+  --shadow:0 10px 28px rgba(61,38,24,.10);
+  --shadow-lg:0 20px 46px rgba(61,38,24,.18);
+  --ease:cubic-bezier(.22,.9,.24,1);
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:5rem;
+  -webkit-text-size-adjust:100%;
+}
+
+body{
+  margin:0;
+  overflow-x:clip;
+  background:var(--cream);
+  color:var(--cocoa);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+  font-size:1rem;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3{line-height:1.12;margin:0 0 .6rem;letter-spacing:-.02em;}
+p{margin:0 0 1rem;}
+address{font-style:normal;}
+svg{max-width:100%;}
+
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:6px;}
+.on-dark :focus-visible{outline-color:var(--sun);}
+
+/* ---------- Skip ---------- */
+.skip{
+  position:absolute;left:1rem;top:-5rem;z-index:200;
+  padding:.65rem 1.1rem;border-radius:0 0 12px 12px;
+  background:var(--coral);color:var(--ink);
+  font-weight:800;text-decoration:none;
+  transition:top .18s var(--ease);
+}
+.skip:focus{top:0;}
+
+/* ---------- Layout ---------- */
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 1.15rem;}
+.section{padding:3.25rem 0;position:relative;}
+.section-tint{
+  background:
+    radial-gradient(70% 60% at 100% 0%, rgba(255,193,74,.16), transparent 65%),
+    radial-gradient(60% 50% at 0% 100%, rgba(255,107,74,.10), transparent 60%),
+    var(--sand);
+}
+.section h2{
+  font-size:1.75rem;
+  color:var(--ink);
+  margin:0 0 .55rem;
+  letter-spacing:-.025em;
+}
+.section h2::after{
+  content:"";
+  display:block;width:3rem;height:4px;margin-top:.7rem;
+  border-radius:2px;background:var(--coral);
+  transform:scaleX(.3);transform-origin:left;
+  transition:transform .9s var(--ease) .1s;
+}
+.section h2.in::after{transform:scaleX(1);}
+
+.eyebrow{
+  margin:0 0 .5rem;
+  color:var(--cocoa-soft);
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+}
+.eyebrow::before{
+  content:"";
+  width:7px;height:7px;border-radius:50%;
+  background:var(--coral);
+  display:inline-block;
+}
+.lede{max-width:56ch;margin:.85rem 0 2rem;color:var(--muted);font-size:1rem;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+
+#top-sentinel{height:1px;margin-bottom:-1px;pointer-events:none;}
+
+/* ---------- Buttons ---------- */
+.btn{
+  position:relative;
+  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+  padding:.95rem 1.65rem;
+  border:2px solid transparent;border-radius:999px;
+  font-size:1rem;font-weight:800;line-height:1.2;
+  text-decoration:none;cursor:pointer;overflow:hidden;
+  transition:background-color .25s var(--ease),box-shadow .35s var(--ease),transform .35s var(--ease),color .25s var(--ease);
+}
+.btn svg{width:20px;height:20px;flex:none;fill:currentColor;}
+.btn-coral{
+  background:var(--coral);border-color:var(--coral);color:var(--ink);
+  box-shadow:0 10px 24px rgba(255,107,74,.35);
+}
+.btn-coral::after{
+  content:"";position:absolute;top:0;left:-60%;width:45%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);
+  transform:skewX(-18deg);
+  transition:left .65s var(--ease);
+}
+.btn-coral:hover{background:#F25535;border-color:#F25535;transform:translateY(-2px);box-shadow:0 16px 32px rgba(255,107,74,.45);}
+.btn-coral:hover::after{left:120%;}
+.btn-coral:active{transform:translateY(0);}
+
+/* ---------- Header / nav ---------- */
+.site-header{
+  position:sticky;top:0;z-index:80;
+  background:rgba(255,248,240,.88);
+  -webkit-backdrop-filter:blur(16px) saturate(1.15);
+  backdrop-filter:blur(16px) saturate(1.15);
+  border-bottom:1px solid var(--line);
+  transition:box-shadow .4s var(--ease),background-color .4s var(--ease);
+}
+.site-header.is-scrolled{
+  background:rgba(255,248,240,.97);
+  box-shadow:0 10px 30px rgba(61,38,24,.08);
+}
+.nav{
+  position:relative;display:flex;align-items:center;justify-content:space-between;
+  gap:.75rem;min-height:3.7rem;max-width:var(--wrap);margin:0 auto;padding:.55rem 1.15rem;
+}
+.brand{
+  display:inline-flex;align-items:center;gap:.55rem;
+  color:var(--ink);font-size:1.18rem;font-weight:800;letter-spacing:-.02em;
+  text-decoration:none;white-space:nowrap;
+}
+.brand-dot{
+  width:9px;height:9px;border-radius:50%;background:var(--coral);
+  box-shadow:0 0 0 0 rgba(255,107,74,.6);
+  animation:pulseDot 2.8s ease-out infinite;
+}
+.brand:hover .brand-dot{background:var(--coral-deep);}
+
+.nav-toggle{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.5rem .8rem;background:transparent;
+  border:1.5px solid rgba(61,38,24,.28);border-radius:10px;
+  color:var(--ink);font:inherit;font-size:.9rem;font-weight:700;cursor:pointer;
+  transition:background-color .25s var(--ease),border-color .25s var(--ease);
+}
+.nav-toggle:hover{background:var(--sand);border-color:var(--coral);}
+.nav-toggle-icon,
+.nav-toggle-icon::before,
+.nav-toggle-icon::after{
+  display:block;width:18px;height:2px;border-radius:2px;background:currentColor;
+  transition:transform .3s var(--ease),opacity .2s var(--ease);
+}
+.nav-toggle-icon{position:relative;}
+.nav-toggle-icon::before,
+.nav-toggle-icon::after{content:"";position:absolute;left:0;}
+.nav-toggle-icon::before{top:-6px;}
+.nav-toggle-icon::after{top:6px;}
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon{background:transparent;}
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon::before{transform:translateY(6px) rotate(45deg);}
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon::after{transform:translateY(-6px) rotate(-45deg);}
+
+.nav-links{
+  position:absolute;left:0;right:0;top:100%;
+  display:none;flex-direction:column;
+  margin:0;padding:.4rem 1.15rem 1.1rem;list-style:none;
+  background:var(--cream);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 24px 44px rgba(61,38,24,.16);
+}
+.nav-links.is-open{display:flex;animation:panelIn .28s var(--ease) both;}
+.nav-links a{
+  position:relative;display:block;padding:.8rem .25rem;
+  color:var(--ink);font-weight:700;text-decoration:none;
+  border-bottom:1px solid var(--line);
+  transition:color .2s var(--ease),padding-left .25s var(--ease);
+}
+.nav-links li:last-child a{border-bottom:0;}
+.nav-links a:hover{color:var(--coral-deep);padding-left:.55rem;}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  padding:3rem 0 3.75rem;
+  color:var(--cocoa);
+  background:
+    radial-gradient(55% 65% at 85% 12%, rgba(255,107,74,.18), transparent 60%),
+    radial-gradient(55% 65% at 8% 92%, rgba(255,193,74,.22), transparent 60%),
+    linear-gradient(180deg,var(--cream) 0%,var(--cream-deep) 100%);
+}
+.hero-inner{position:relative;z-index:2;}
+.hero-orb{
+  position:absolute;border-radius:50%;pointer-events:none;z-index:1;
+  filter:blur(2px);
+  will-change:transform;
+}
+.hero-orb--1{
+  width:min(65vw,400px);aspect-ratio:1;top:-12%;right:-14%;
+  background:radial-gradient(circle,rgba(255,107,74,.55),rgba(255,107,74,0) 70%);
+  animation:floatA 18s ease-in-out infinite alternate;
+}
+.hero-orb--2{
+  width:min(58vw,360px);aspect-ratio:1;bottom:-18%;left:-12%;
+  background:radial-gradient(circle,rgba(255,193,74,.5),rgba(255,193,74,0) 70%);
+  animation:floatB 22s ease-in-out infinite alternate;
+}
+.hero-glow{
+  position:absolute;inset:-15%;z-index:1;pointer-events:none;opacity:0;
+  background:radial-gradient(340px circle at var(--mx,50%) var(--my,30%),rgba(255,107,74,.22),transparent 62%);
+  transition:opacity .7s var(--ease);
+}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:.5rem;
+  margin:0 0 1rem;padding:.4rem .85rem;
+  background:var(--white);
+  border:1px solid var(--line);border-radius:999px;
+  color:var(--cocoa);font-size:.74rem;font-weight:800;
+  letter-spacing:.12em;text-transform:uppercase;
+  box-shadow:var(--shadow-sm);
+}
+.hero-kicker::before{
+  content:"";width:6px;height:6px;border-radius:50%;
+  background:var(--coral);animation:pulseDot 2.8s ease-out infinite;
+}
+.hero h1{
+  margin:0 0 .85rem;
+  font-size:clamp(2.8rem,13vw,5.4rem);
+  letter-spacing:-.045em;
+  line-height:.98;
+  color:var(--ink);
+}
+.hero h1 em{
+  font-style:normal;
+  color:var(--coral);
+  position:relative;
+  display:inline-block;
+}
+.hero h1 em::after{
+  content:"";
+  position:absolute;left:0;right:0;bottom:.04em;height:.11em;
+  background:var(--sun);opacity:.45;
+  border-radius:2px;
+  z-index:-1;
+}
+.hero-tag{max-width:36ch;margin:0 0 1.8rem;color:var(--cocoa-soft);font-size:1.08rem;}
+.hero-cta{display:flex;flex-direction:column;align-items:flex-start;gap:.85rem;}
+.hero-note{margin:0;color:var(--muted);font-size:.88rem;}
+
+.hero-facts{
+  display:flex;flex-wrap:wrap;gap:.45rem .55rem;
+  margin:2.1rem 0 0;padding:0;list-style:none;
+}
+.hero-facts li{
+  padding:.38rem .8rem;border-radius:999px;
+  background:var(--white);
+  border:1px solid var(--line);
+  color:var(--cocoa);font-size:.78rem;font-weight:700;
+  box-shadow:var(--shadow-sm);
+}
+
+.scroll-cue{
+  position:relative;z-index:2;
+  display:inline-flex;align-items:center;gap:.55rem;
+  margin-top:2.2rem;color:var(--muted);font-size:.72rem;font-weight:800;
+  letter-spacing:.18em;text-transform:uppercase;text-decoration:none;
+}
+.scroll-cue:hover{color:var(--coral-deep);}
+.scroll-cue span{
+  display:block;width:1px;height:34px;
+  background:linear-gradient(180deg,var(--coral),transparent);
+  animation:cueDrop 2.2s ease-in-out infinite;
+  transform-origin:top;
+}
+
+/* ---------- Marquee ---------- */
+.marquee{
+  overflow:hidden;padding:.85rem 0;
+  background:var(--coral);
+  border-top:2px solid var(--coral-deep);
+  border-bottom:2px solid var(--coral-deep);
+}
+.marquee-track{
+  display:flex;width:max-content;
+  animation:slide 36s linear infinite;
+}
+.marquee:hover .marquee-track{animation-play-state:paused;}
+.marquee-track span{
+  padding:0 1.1rem;
+  color:var(--ink);
+  font-size:.78rem;font-weight:800;
+  letter-spacing:.2em;text-transform:uppercase;
+  white-space:nowrap;
+}
+.marquee-track span::after{content:"✺";margin-left:1.1rem;font-size:.75rem;opacity:.55;}
+
+/* ---------- Services ---------- */
+.cards{display:grid;grid-template-columns:1fr;gap:1rem;margin:0;padding:0;list-style:none;}
+.card{
+  position:relative;
+  border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--white);
+  box-shadow:var(--shadow-sm);
+  overflow:hidden;
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s var(--ease);
+}
+.card::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 90% at 100% 0%, rgba(255,193,74,.16), transparent 60%);
+  opacity:0;transition:opacity .45s var(--ease);
+  pointer-events:none;
+}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:rgba(255,107,74,.4);}
+.card:hover::before{opacity:1;}
+.card.is-picked{border-color:var(--coral);box-shadow:0 14px 30px rgba(255,107,74,.18);}
+.card.is-picked::before{opacity:1;}
+
+.card-inner{
+  position:relative;
+  display:flex;flex-direction:column;
+  height:100%;
+  padding:1.4rem 1.3rem 1.3rem;
+}
+.card h3{position:relative;margin:0 0 .45rem;color:var(--ink);font-size:1.15rem;letter-spacing:-.015em;}
+.card p{position:relative;margin:0 0 1.2rem;color:var(--muted);font-size:.94rem;}
+
+.card-footer{
+  position:relative;
+  margin-top:auto;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:.65rem;
+  flex-wrap:wrap;
+}
+.price{
+  padding:.35rem .85rem;border-radius:999px;
+  border:1px solid rgba(255,107,74,.28);background:var(--coral-soft);
+  color:var(--cocoa);font-size:1rem;font-weight:800;
+  transition:background-color .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease);
+}
+.card.is-picked .price{background:var(--coral);color:var(--ink);border-color:var(--coral);}
+
+/* Quantity stepper */
+.qty{
+  display:inline-flex;align-items:center;
+  padding:3px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--cream-deep);
+  transition:border-color .25s var(--ease),background-color .25s var(--ease);
+}
+.card.is-picked .qty{
+  border-color:rgba(255,107,74,.5);
+  background:var(--white);
+}
+.qty-btn{
+  width:36px;height:36px;
+  display:grid;place-items:center;
+  border:0;border-radius:50%;
+  background:transparent;
+  color:var(--cocoa);
+  font-size:1.25rem;font-weight:800;line-height:1;
+  cursor:pointer;padding:0;
+  transition:background-color .2s var(--ease),transform .12s var(--ease),opacity .2s var(--ease),color .2s var(--ease);
+  -webkit-tap-highlight-color:transparent;
+}
+.qty-btn.qty-inc{
+  background:var(--coral);
+  color:var(--ink);
+}
+.qty-btn.qty-inc:hover{background:var(--coral-deep);}
+.qty-btn.qty-dec:hover:not(:disabled){background:var(--sun);}
+.qty-btn:hover:not(:disabled){transform:scale(1.08);}
+.qty-btn:active:not(:disabled){transform:scale(.94);}
+.qty-btn:disabled{opacity:.3;cursor:not-allowed;}
+.qty-count{
+  min-width:1.85rem;
+  text-align:center;
+  font-weight:800;
+  font-size:1rem;
+  color:var(--ink);
+  font-variant-numeric:tabular-nums;
+  transition:color .2s var(--ease);
+}
+.card.is-picked .qty-count{color:var(--coral-deep);}
+
+/* ---------- Preferred time ---------- */
+.time-pick{
+  margin:1.75rem 0 0;
+  padding:1.1rem 1.15rem;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:var(--white);
+  box-shadow:var(--shadow-sm);
+  min-width:0;
+}
+.time-legend{
+  padding:0 .4rem;
+  font-size:.74rem;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--cocoa-soft);
+}
+.time-options{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.25rem;}
+.time-opt{position:relative;display:inline-block;}
+.time-opt input{position:absolute;opacity:0;width:0;height:0;pointer-events:none;}
+.time-opt span{
+  display:inline-block;
+  padding:.5rem .95rem;
+  border-radius:999px;
+  border:1.5px solid var(--line);
+  background:var(--cream);
+  color:var(--cocoa);
+  font-size:.85rem;
+  font-weight:700;
+  cursor:pointer;
+  transition:background-color .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease);
+}
+.time-opt input:checked + span{
+  background:var(--coral);
+  border-color:var(--coral);
+  color:var(--ink);
+}
+.time-opt input:focus-visible + span{
+  outline:3px solid var(--coral);
+  outline-offset:3px;
+}
+.time-note{margin:.75rem 0 0;font-size:.82rem;color:var(--muted);}
+
+/* ---------- Gallery ---------- */
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:.85rem;margin:0;padding:0;list-style:none;}
+.tile{
+  position:relative;display:grid;place-items:center;
+  min-height:9rem;padding:1rem .75rem;
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  transition:transform .55s var(--ease),box-shadow .55s var(--ease);
+  background-size:220% 220%;
+  animation:drift 18s ease-in-out infinite alternate;
+}
+.tile::before{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(45deg,rgba(255,255,255,.06) 0 2px,transparent 2px 7px),
+    radial-gradient(circle at 20% 20%,rgba(255,255,255,.18),transparent 55%);
+  pointer-events:none;
+}
+.tile:hover{transform:translateY(-5px) rotate(-.6deg);box-shadow:var(--shadow-lg);}
+.tile span{
+  position:relative;
+  background:rgba(31,17,8,.66);
+  color:var(--cream);
+  padding:.38rem .85rem;
+  border-radius:999px;
+  font-size:.8rem;
+  font-weight:800;
+  letter-spacing:.04em;
+  line-height:1.25;
+  max-width:14ch;
+  text-align:center;
+  -webkit-backdrop-filter:blur(6px);
+  backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.12);
+}
+.g1{background-image:linear-gradient(135deg,#FF8A5B,#FFC14A);}
+.g2{background-image:linear-gradient(135deg,#3D2618,#FF6B4A);animation-delay:-3s;}
+.g3{background-image:linear-gradient(135deg,#FFD66B,#E64D2E);animation-delay:-6s;}
+.g4{background-image:linear-gradient(135deg,#5A3A28,#FF9A6B);animation-delay:-9s;}
+.g5{background-image:linear-gradient(135deg,#FF6B4A,#5A3A28);animation-delay:-12s;}
+.g6{background-image:linear-gradient(135deg,#FFC14A,#FF6B4A);animation-delay:-15s;}
+
+/* ---------- About ---------- */
+.about-block{
+  position:relative;
+  padding:.25rem 0 .25rem 1.25rem;
+  border-left:4px solid var(--coral);
+}
+.about-block p{max-width:62ch;margin:0;font-size:1.08rem;color:var(--cocoa);}
+
+/* ---------- Hours ---------- */
+.hours{
+  width:100%;max-width:27rem;border-collapse:collapse;
+  border-radius:var(--radius);overflow:hidden;
+  background:var(--white);box-shadow:var(--shadow);
+}
+.hours th,.hours td{
+  padding:.82rem .95rem;text-align:left;
+  border-bottom:1px solid var(--line);font-size:.95rem;
+}
+.hours thead th{
+  background:var(--ink);color:var(--cream);
+  font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;
+}
+.hours tbody th{font-weight:700;color:var(--ink);}
+.hours tbody tr:nth-child(even){background:var(--cream-deep);}
+.hours tbody tr:last-child th,.hours tbody tr:last-child td{border-bottom:0;}
+.hours-note{max-width:46ch;margin:1.1rem 0 0;color:var(--muted);font-size:.9rem;}
+
+/* ---------- Contact ---------- */
+.contact-card{
+  position:relative;display:grid;gap:1.25rem;
+  padding:1.65rem;border-radius:var(--radius);
+  background:
+    radial-gradient(90% 90% at 100% 0%, rgba(255,107,74,.32), transparent 65%),
+    radial-gradient(70% 70% at 0% 100%, rgba(255,193,74,.20), transparent 60%),
+    linear-gradient(160deg,#3D2618,#1F1108);
+  color:var(--cream);
+  box-shadow:var(--shadow-lg);
+  overflow:hidden;
+}
+.contact-title{margin:0;color:var(--cream);font-size:1.1rem;}
+.contact-list{display:grid;gap:.95rem;margin:0;padding:0;list-style:none;}
+.contact-list li{display:flex;align-items:flex-start;gap:.7rem;font-size:.98rem;}
+.contact-list svg{flex:none;width:20px;height:20px;margin-top:.2rem;fill:var(--sun);}
+.contact-card a{color:var(--sun);text-decoration:underline;text-underline-offset:3px;}
+.contact-card a:hover{color:var(--coral-soft);}
+.contact-card .btn-coral{justify-self:start;}
+
+/* ---------- Footer ---------- */
+.site-footer{
+  position:relative;overflow:hidden;
+  padding:2.5rem 0 calc(2.5rem + 5.75rem + env(safe-area-inset-bottom));
+  background:var(--ink);color:#E8D6C4;
+}
+.site-footer::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,107,74,.9),transparent);
+}
+.footer-inner{display:flex;flex-direction:column;align-items:flex-start;gap:.6rem;}
+.footer-name{
+  margin:0;font-size:1.65rem;font-weight:800;letter-spacing:-.025em;
+  color:var(--coral);
+}
+.footer-copy{margin:0;color:#B79B85;font-size:.85rem;}
+.site-footer a{color:var(--sun);font-weight:700;text-decoration:underline;text-underline-offset:3px;}
+.site-footer a:hover{color:var(--cream);}
+
+/* ---------- Floating WhatsApp ---------- */
+.fab{
+  position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom));z-index:90;
+  display:grid;place-items:center;width:58px;height:58px;
+  border:2px solid var(--cream);border-radius:50%;
+  background:var(--coral);color:var(--ink);
+  box-shadow:0 12px 28px rgba(31,17,8,.35);
+  text-decoration:none;
+  transition:transform .3s var(--ease),background-color .3s var(--ease);
+}
+.fab::before{
+  content:"";position:absolute;inset:-2px;border-radius:50%;
+  border:2px solid var(--coral);
+  animation:ring 2.6s ease-out infinite;
+  pointer-events:none;
+}
+.fab svg{width:29px;height:29px;fill:currentColor;}
+.fab:hover{background:var(--coral-deep);transform:translateY(-3px) scale(1.04);}
+body.has-selection .fab{display:none;}
+
+/* ---------- Selection bar ---------- */
+.selection-bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:95;
+  display:none;
+  padding:.7rem 0 calc(.7rem + env(safe-area-inset-bottom));
+  background:var(--ink);
+  color:var(--cream);
+  border-top:2px solid var(--coral);
+  box-shadow:0 -12px 32px rgba(31,17,8,.35);
+}
+.selection-bar.is-active{display:block;animation:slideUpBar .35s var(--ease) both;}
+.selection-inner{
+  display:flex;align-items:center;justify-content:space-between;gap:.75rem;
+  max-width:var(--wrap);margin:0 auto;padding:0 1.15rem;
+}
+.selection-info{display:flex;flex-direction:column;line-height:1.2;min-width:0;}
+.selection-count{font-size:.74rem;color:#C9B4A0;font-weight:700;letter-spacing:.05em;}
+.selection-total{font-size:1.15rem;font-weight:800;color:var(--cream);}
+.selection-actions{display:flex;align-items:center;gap:.5rem;flex:none;}
+.selection-clear{
+  padding:.55rem .8rem;
+  background:transparent;
+  border:1.5px solid rgba(255,248,240,.3);
+  border-radius:999px;
+  color:var(--cream);
+  font:inherit;font-size:.82rem;font-weight:700;
+  cursor:pointer;
+  transition:background-color .2s var(--ease),border-color .2s var(--ease);
+}
+.selection-clear:hover{background:rgba(255,248,240,.1);border-color:var(--cream);}
+.selection-book{padding:.7rem 1.25rem;font-size:.92rem;}
+.selection-book:focus-visible{outline-color:var(--cream);}
+
+/* ---------- Reveal ---------- */
+.js .reveal{
+  opacity:0;transform:translateY(24px);
+  transition:opacity .8s var(--ease),transform .8s var(--ease);
+  transition-delay:calc(var(--d,0) * 80ms);
+}
+.js .reveal.in{opacity:1;transform:none;}
+.cards > *:nth-child(2){--d:1;}
+.cards > *:nth-child(3){--d:2;}
+.cards > *:nth-child(4){--d:3;}
+.cards > *:nth-child(5){--d:4;}
+.gallery > *:nth-child(2){--d:1;}
+.gallery > *:nth-child(3){--d:2;}
+.gallery > *:nth-child(4){--d:1;}
+.gallery > *:nth-child(5){--d:2;}
+.gallery > *:nth-child(6){--d:3;}
+
+/* ---------- Keyframes ---------- */
+@keyframes riseIn{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:none;}}
+@keyframes pulseDot{
+  0%{box-shadow:0 0 0 0 rgba(255,107,74,.65);}
+  70%{box-shadow:0 0 0 9px rgba(255,107,74,0);}
+  100%{box-shadow:0 0 0 0 rgba(255,107,74,0);}
+}
+@keyframes floatA{
+  from{transform:translate3d(0,0,0) scale(1);}
+  to{transform:translate3d(10%,8%,0) scale(1.14);}
+}
+@keyframes floatB{
+  from{transform:translate3d(0,0,0) scale(1.05);}
+  to{transform:translate3d(-10%,-9%,0) scale(1);}
+}
+@keyframes drift{
+  from{background-position:0% 0%;}
+  to{background-position:100% 100%;}
+}
+@keyframes slide{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
+}
+@keyframes cueDrop{
+  0%,100%{transform:scaleY(.35);opacity:.4;}
+  50%{transform:scaleY(1);opacity:1;}
+}
+@keyframes panelIn{
+  from{opacity:0;transform:translateY(-8px);}
+  to{opacity:1;transform:none;}
+}
+@keyframes ring{
+  0%{transform:scale(1);opacity:.85;}
+  70%{transform:scale(1.55);opacity:0;}
+  100%{transform:scale(1.55);opacity:0;}
+}
+@keyframes slideUpBar{
+  from{transform:translateY(100%);}
+  to{transform:none;}
+}
+
+.hero .rise{animation:riseIn .95s var(--ease) both;}
+.hero .rise:nth-child(2){animation-delay:.08s;}
+.hero .rise:nth-child(3){animation-delay:.16s;}
+.hero .rise:nth-child(4){animation-delay:.24s;}
+.hero .rise:nth-child(5){animation-delay:.32s;}
+
+/* ---------- 640px ---------- */
+@media (min-width:640px){
+  .nav-toggle{display:none;}
+  .nav-links{
+    position:static;display:flex;flex-direction:row;align-items:center;
+    gap:.15rem;padding:0;background:transparent;border:0;box-shadow:none;
+    animation:none;
+  }
+  .nav-links a{
+    padding:.5rem .7rem;border:0;border-radius:8px;font-size:.92rem;
+    border-bottom:0;color:var(--cocoa);
+  }
+  .nav-links a::after{
+    content:"";position:absolute;left:.7rem;right:.7rem;bottom:.32rem;height:2px;
+    background:var(--coral);border-radius:2px;
+    transform:scaleX(0);transform-origin:left;
+    transition:transform .35s var(--ease);
+  }
+  .nav-links a:hover{padding-left:.7rem;background:var(--sand);color:var(--ink);}
+  .nav-links a:hover::after,
+  .nav-links a.is-active::after{transform:scaleX(1);}
+  .nav-links a.is-active{color:var(--ink);}
+
+  .section{padding:4.25rem 0;}
+  .section h2{font-size:2.15rem;}
+  .hero{padding:4.25rem 0 5rem;}
+  .hero-cta{flex-direction:row;align-items:center;gap:1.5rem;}
+
+  .cards{grid-template-columns:repeat(2,1fr);gap:1.25rem;}
+  .gallery{grid-template-columns:repeat(3,1fr);gap:1rem;}
+  .tile{min-height:11rem;}
+
+  .contact-card{grid-template-columns:1fr auto;align-items:center;gap:1.6rem;}
+  .contact-title{grid-column:1 / -1;}
+
+  .footer-inner{flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;}
+}
+
+/* ---------- 768px ---------- */
+@media (min-width:768px){
+  .fab{display:none;}
+  .site-footer{padding-bottom:2.5rem;}
+
+  .selection-bar{
+    left:0;right:0;margin:0 auto;
+    max-width:680px;
+    bottom:1.5rem;
+    border-radius:999px;
+    border:1px solid rgba(255,248,240,.12);
+    border-top:2px solid var(--coral);
+    padding:.7rem 1.2rem;
+  }
+  .selection-inner{padding:0;}
+  body.has-selection .site-footer{padding-bottom:6rem;}
+}
+
+/* ---------- 960px ---------- */
+@media (min-width:960px){
+  .section{padding:5.5rem 0;}
+  .section h2{font-size:2.4rem;}
+  .hero{padding:6rem 0 6.5rem;}
+  .hero-tag{font-size:1.18rem;}
+  .cards{grid-template-columns:repeat(3,1fr);}
+  .lede{margin-bottom:2.5rem;}
+  .tile{min-height:12rem;}
+  .tile span{font-size:.85rem;padding:.42rem .95rem;}
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+    transition-delay:0ms !important;
+  }
+  .js .reveal{opacity:1;transform:none;}
+  .hero-glow{display:none;}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header" id="siteHeader">
+  <nav class="nav" aria-label="Main">
+    <!-- EDIT: salon name -->
+    <a class="brand" href="#top"><span class="brand-dot" aria-hidden="true"></span>Glow Studio</a>
+
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="nav-links">
+      <span class="nav-toggle-icon" aria-hidden="true"></span>
+      <span class="nav-toggle-text">Menu</span>
+    </button>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#hours">Hours</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+  <div id="top-sentinel" aria-hidden="true"></div>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="top">
+    <div class="hero-glow" id="heroGlow" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb--1" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb--2" aria-hidden="true"></div>
+
+    <div class="wrap hero-inner">
+      <p class="hero-kicker rise">Hair salon · Osu, Accra</p>
+      <!-- EDIT: salon name -->
+      <h1 class="rise">Glow <em>Studio</em></h1>
+      <p class="hero-tag rise">Braids, wig revamping and gentle natural hair care — properly done, right here in the heart of Accra.</p>
+
+      <div class="hero-cta rise">
+        <!-- EDIT: phone number -->
+        <a class="btn btn-coral" href="https://wa.me/233246625602?text=Hello%20Glow%20Studio%2C%20I%20would%20like%20to%20book%20an%20appointment" data-wa-book target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.17 1.72 2.63 4.17 3.69.58.25 1.04.4 1.39.51.59.19 1.12.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+          Book on WhatsApp
+        </a>
+        <p class="hero-note">Walk-ins welcome — a quick message saves you a seat.</p>
+      </div>
+
+      <ul class="hero-facts rise">
+        <li>Knotless braids</li>
+        <li>Wig revamping</li>
+        <li>Natural hair care</li>
+        <li>Mon–Sat, 8am–7pm</li>
+      </ul>
+
+      <a class="scroll-cue" href="#services"><span aria-hidden="true"></span>Scroll</a>
+    </div>
+  </section>
+
+  <!-- Decorative band; hidden from assistive tech -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Knotless Braids</span><span>Wig Installation</span><span>Natural Hair</span><span>Soft Glam</span><span>Relaxer</span><span>Silk Press</span>
+      <span>Knotless Braids</span><span>Wig Installation</span><span>Natural Hair</span><span>Soft Glam</span><span>Relaxer</span><span>Silk Press</span>
+    </div>
+  </div>
+
+  <!-- ===================== SERVICES ===================== -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <p class="eyebrow reveal">01 — Services</p>
+      <h2 class="reveal">What we do</h2>
+      <p class="lede reveal">Tap <strong>+</strong> to add what you want — one for you, four for the family, however many you need. Pick a time, and the WhatsApp button at the bottom fills in your list and total. Braiding takes a few hours, so book ahead when you can — we confirm the final price before we start.</p>
+
+      <!-- EDIT: prices -->
+      <ul class="cards">
+        <li class="card reveal" data-service="Knotless Braids" data-price="350">
+          <div class="card-inner">
+            <h3>Knotless Braids</h3>
+            <p>Neat, low-tension braids that are kind to your edges. Small and medium sizes, roughly 4–6 hours in the chair.</p>
+            <div class="card-footer">
+              <span class="price">GH₵ 350</span>
+              <div class="qty" role="group" aria-label="Quantity for Knotless Braids">
+                <button type="button" class="qty-btn qty-dec" data-qty-dec disabled aria-label="Remove one Knotless Braids">−</button>
+                <span class="qty-count" data-qty-count aria-live="polite">0</span>
+                <button type="button" class="qty-btn qty-inc" data-qty-inc aria-label="Add one Knotless Braids">+</button>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="card reveal" data-service="Wig Installation" data-price="300">
+          <div class="card-inner">
+            <h3>Wig Installation</h3>
+            <p>Frontal and closure installs with a melted hairline — and yes, we revamp old wigs so they look new again.</p>
+            <div class="card-footer">
+              <span class="price">GH₵ 300</span>
+              <div class="qty" role="group" aria-label="Quantity for Wig Installation">
+                <button type="button" class="qty-btn qty-dec" data-qty-dec disabled aria-label="Remove one Wig Installation">−</button>
+                <span class="qty-count" data-qty-count aria-live="polite">0</span>
+                <button type="button" class="qty-btn qty-inc" data-qty-inc aria-label="Add one Wig Installation">+</button>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="card reveal" data-service="Relaxer & Treatment" data-price="250">
+          <div class="card-inner">
+            <h3>Relaxer &amp; Treatment</h3>
+            <p>Smooth relaxer followed by a protein treatment, so your hair stays strong after the chemical.</p>
+            <div class="card-footer">
+              <span class="price">GH₵ 250</span>
+              <div class="qty" role="group" aria-label="Quantity for Relaxer and Treatment">
+                <button type="button" class="qty-btn qty-dec" data-qty-dec disabled aria-label="Remove one Relaxer and Treatment">−</button>
+                <span class="qty-count" data-qty-count aria-live="polite">0</span>
+                <button type="button" class="qty-btn qty-inc" data-qty-inc aria-label="Add one Relaxer and Treatment">+</button>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="card reveal" data-service="Natural Hair Care" data-price="280">
+          <div class="card-inner">
+            <h3>Natural Hair Care</h3>
+            <p>Wash, deep condition and a proper trim, plus a silk press or twist-out if you want one.</p>
+            <div class="card-footer">
+              <span class="price">GH₵ 280</span>
+              <div class="qty" role="group" aria-label="Quantity for Natural Hair Care">
+                <button type="button" class="qty-btn qty-dec" data-qty-dec disabled aria-label="Remove one Natural Hair Care">−</button>
+                <span class="qty-count" data-qty-count aria-live="polite">0</span>
+                <button type="button" class="qty-btn qty-inc" data-qty-inc aria-label="Add one Natural Hair Care">+</button>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="card reveal" data-service="Makeup" data-price="400">
+          <div class="card-inner">
+            <h3>Makeup</h3>
+            <p>Soft glam or full face for weddings, birthdays and shoots. We match deep skin tones properly.</p>
+            <div class="card-footer">
+              <span class="price">GH₵ 400</span>
+              <div class="qty" role="group" aria-label="Quantity for Makeup">
+                <button type="button" class="qty-btn qty-dec" data-qty-dec disabled aria-label="Remove one Makeup">−</button>
+                <span class="qty-count" data-qty-count aria-live="polite">0</span>
+                <button type="button" class="qty-btn qty-inc" data-qty-inc aria-label="Add one Makeup">+</button>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <fieldset class="time-pick reveal">
+        <legend class="time-legend">Preferred time</legend>
+        <div class="time-options">
+          <label class="time-opt">
+            <input type="radio" name="pref-time" value="Any time" checked>
+            <span>Any time</span>
+          </label>
+          <label class="time-opt">
+            <input type="radio" name="pref-time" value="Morning (8am–12pm)">
+            <span>Morning</span>
+          </label>
+          <label class="time-opt">
+            <input type="radio" name="pref-time" value="Afternoon (12pm–4pm)">
+            <span>Afternoon</span>
+          </label>
+          <label class="time-opt">
+            <input type="radio" name="pref-time" value="Evening (4pm–7pm)">
+            <span>Evening</span>
+          </label>
+        </div>
+        <p class="time-note">This is a preference, not a reservation — we'll confirm the exact time on WhatsApp.</p>
+      </fieldset>
+    </div>
+  </section>
+
+  <!-- ===================== GALLERY ===================== -->
+  <section class="section section-tint" id="gallery">
+    <div class="wrap">
+      <p class="eyebrow reveal">02 — Gallery</p>
+      <h2 class="reveal">Recent work</h2>
+      <p class="lede reveal">A look at the styles that come out of the salon most weeks.</p>
+
+      <!-- EDIT: gallery images — these six blocks are CSS-only placeholders.
+           Swap each <li> for a real photo (an <img> or a background-image) and keep the label text. -->
+      <ul class="gallery">
+        <li class="tile g1 reveal"><span>Knotless Braids</span></li>
+        <li class="tile g2 reveal"><span>Boho Braids</span></li>
+        <li class="tile g3 reveal"><span>Wig Install</span></li>
+        <li class="tile g4 reveal"><span>Silk Press</span></li>
+        <li class="tile g5 reveal"><span>Twist Out</span></li>
+        <li class="tile g6 reveal"><span>Soft Glam</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <p class="eyebrow reveal">03 — About</p>
+      <h2 class="reveal">Who you're sitting with</h2>
+      <div class="about-block reveal">
+        <p>Glow Studio is a small salon on Oxford Street in Osu, where we have spent close to a decade braiding, revamping wigs and looking after natural hair. Bring your own hair or buy from us — either way, you will leave with your edges intact and a style that lasts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== OPENING HOURS ===================== -->
+  <section class="section section-tint" id="hours">
+    <div class="wrap">
+      <p class="eyebrow reveal">04 — Hours</p>
+      <h2 class="reveal">Opening hours</h2>
+      <p class="lede reveal">We are in the salon six days a week.</p>
+
+      <table class="hours reveal">
+        <caption class="sr-only">Glow Studio weekly opening hours</caption>
+        <thead>
+          <tr>
+            <th scope="col">Day</th>
+            <th scope="col">Hours</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Monday – Saturday</th>
+            <td>8:00 am – 7:00 pm</td>
+          </tr>
+          <tr>
+            <th scope="row">Sunday</th>
+            <td>Closed</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="hours-note reveal">The last braiding appointment starts at 4:00 pm so we finish and close up properly.</p>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <p class="eyebrow reveal">05 — Contact</p>
+      <h2 class="reveal">Come through</h2>
+      <p class="lede reveal">Come through to the salon, or send a message and we will reply the same day.</p>
+
+      <div class="contact-card on-dark reveal">
+        <h3 class="contact-title">Find us in Osu</h3>
+        <address>
+          <ul class="contact-list">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+              <!-- EDIT: address -->
+              <span>Shop 4, 27 Oxford Street, Osu, Accra</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.2 2.2Z"/></svg>
+              <!-- EDIT: phone number -->
+              <a href="tel:+233246625602">+233 24 662 5602</a>
+            </li>
+          </ul>
+        </address>
+        <a class="btn btn-coral" href="https://www.google.com/maps/search/?api=1&amp;query=Oxford%20Street%2C%20Osu%2C%20Accra" target="_blank" rel="noopener">Get Directions</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer on-dark">
+  <div class="wrap footer-inner">
+    <!-- EDIT: salon name -->
+    <p class="footer-name">Glow Studio</p>
+    <p class="footer-copy">© 2025 Glow Studio · Osu, Accra</p>
+    <!-- EDIT: phone number -->
+    <a href="https://wa.me/233246625602?text=Hello%20Glow%20Studio%2C%20I%20would%20like%20to%20book%20an%20appointment" data-wa-book target="_blank" rel="noopener">Book on WhatsApp</a>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp button: mobile only, hides once the selection bar appears -->
+<!-- EDIT: phone number -->
+<a class="fab" href="https://wa.me/233246625602?text=Hello%20Glow%20Studio%2C%20I%20would%20like%20to%20book%20an%20appointment" data-wa-book target="_blank" rel="noopener" aria-label="Book an appointment with Glow Studio on WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.17 1.72 2.63 4.17 3.69.58.25 1.04.4 1.39.51.59.19 1.12.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+</a>
+
+<!-- Selection bar: appears when the visitor adds at least one service -->
+<div class="selection-bar" id="selectionBar">
+  <div class="selection-inner">
+    <div class="selection-info" aria-live="polite">
+      <span class="selection-count" id="selectionCount">0 services</span>
+      <span class="selection-total" id="selectionTotal">GH₵ 0</span>
+    </div>
+    <div class="selection-actions">
+      <button type="button" class="selection-clear" id="selectionClear">Clear</button>
+      <!-- EDIT: phone number -->
+      <a class="btn btn-coral selection-book" href="https://wa.me/233246625602?text=Hello%20Glow%20Studio%2C%20I%20would%20like%20to%20book%20an%20appointment" data-wa-book target="_blank" rel="noopener">Book</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var docEl = document.documentElement;
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var supportsIO = 'IntersectionObserver' in window;
+
+  docEl.classList.add('js');
+
+  /* ==================================================================
+     WhatsApp booking builder with quantities
+     EDIT: phone number — international format, no +, no spaces, no leading 0
+     ================================================================== */
+  var WA_PHONE = '233246625602';
+  var BASE_TEXT = 'Hello Glow Studio, I would like to book an appointment';
+
+  var cards        = Array.prototype.slice.call(document.querySelectorAll('.card[data-service]'));
+  var timeRadios   = Array.prototype.slice.call(document.querySelectorAll('input[name="pref-time"]'));
+  var waLinks      = Array.prototype.slice.call(document.querySelectorAll('[data-wa-book]'));
+  var selectionBar = document.getElementById('selectionBar');
+  var countEl      = document.getElementById('selectionCount');
+  var totalEl      = document.getElementById('selectionTotal');
+  var clearBtn     = document.getElementById('selectionClear');
+
+  var quantities = {};
+
+  function money(n){ return 'GH₵ ' + n; }
+
+  function getCardState(card) {
+    var name = card.getAttribute('data-service');
+    var price = parseInt(card.getAttribute('data-price'), 10) || 0;
+    var qty = quantities[name] || 0;
+    return { name: name, price: price, qty: qty };
+  }
+
+  function renderCards() {
+    cards.forEach(function (card) {
+      var state = getCardState(card);
+      var count = card.querySelector('[data-qty-count]');
+      var dec = card.querySelector('[data-qty-dec]');
+
+      if (count) count.textContent = state.qty;
+      if (dec) dec.disabled = state.qty === 0;
+
+      if (state.qty > 0) {
+        card.classList.add('is-picked');
+      } else {
+        card.classList.remove('is-picked');
+      }
+    });
+  }
+
+  function buildText(selected, time) {
+    if (!selected.length) {
+      return BASE_TEXT;
+    }
+    var lines = ['Hello Glow Studio, I would like to book an appointment for:'];
+    selected.forEach(function (item) {
+      var lineTotal = item.price * item.qty;
+      if (item.qty === 1) {
+        lines.push('• ' + item.name + ' — ' + money(lineTotal));
+      } else {
+        lines.push('• ' + item.name + ' ×' + item.qty + ' — ' + money(lineTotal));
+      }
+    });
+    var total = selected.reduce(function (sum, item) {
+      return sum + item.price * item.qty;
+    }, 0);
+    lines.push('Total: ' + money(total));
+    if (time && time !== 'Any time') {
+      lines.push('Preferred time: ' + time);
+    }
+    return lines.join('\n');
+  }
+
+  function updateBooking() {
+    var selected = [];
+    cards.forEach(function (card) {
+      var state = getCardState(card);
+      if (state.qty > 0) selected.push(state);
+    });
+
+    var time = '';
+    timeRadios.forEach(function (r) { if (r.checked) time = r.value; });
+
+    var totalItems = selected.reduce(function (sum, item) { return sum + item.qty; }, 0);
+    var totalPrice = selected.reduce(function (sum, item) { return sum + item.price * item.qty; }, 0);
+    var text = buildText(selected, time);
+    var url = 'https://wa.me/' + WA_PHONE + '?text=' + encodeURIComponent(text);
+
+    waLinks.forEach(function (a) { a.setAttribute('href', url); });
+
+    if (totalItems > 0) {
+      document.body.classList.add('has-selection');
+      selectionBar.classList.add('is-active');
+      countEl.textContent = totalItems + (totalItems === 1 ? ' service' : ' services');
+      totalEl.textContent = money(totalPrice);
+    } else {
+      document.body.classList.remove('has-selection');
+      selectionBar.classList.remove('is-active');
+    }
+  }
+
+  function refresh() {
+    renderCards();
+    updateBooking();
+  }
+
+  cards.forEach(function (card) {
+    var name = card.getAttribute('data-service');
+    var inc = card.querySelector('[data-qty-inc]');
+    var dec = card.querySelector('[data-qty-dec]');
+
+    if (inc) {
+      inc.addEventListener('click', function () {
+        quantities[name] = (quantities[name] || 0) + 1;
+        refresh();
+      });
+    }
+    if (dec) {
+      dec.addEventListener('click', function () {
+        if ((quantities[name] || 0) > 0) {
+          quantities[name] -= 1;
+          refresh();
+        }
+      });
+    }
+  });
+
+  timeRadios.forEach(function (radio) {
+    radio.addEventListener('change', updateBooking);
+  });
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function () {
+      cards.forEach(function (card) {
+        quantities[card.getAttribute('data-service')] = 0;
+      });
+      refresh();
+    });
+  }
+
+  /* Run once so every WhatsApp link carries the correct base message on load */
+  refresh();
+
+  /* ---------------- Mobile menu ---------------- */
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('nav-links');
+  var toggleLabel = toggle ? toggle.querySelector('.nav-toggle-text') : null;
+
+  function closeMenu() {
+    if (!links) return;
+    links.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    if (toggleLabel) toggleLabel.textContent = 'Menu';
+  }
+
+  if (toggle && links) {
+    toggle.addEventListener('click', function () {
+      var open = links.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (toggleLabel) toggleLabel.textContent = open ? 'Close' : 'Menu';
+    });
+
+    links.addEventListener('click', function (event) {
+      if (event.target.closest('a')) closeMenu();
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && links.classList.contains('is-open')) {
+        closeMenu();
+        toggle.focus();
+      }
+    });
+
+    document.addEventListener('click', function (event) {
+      if (links.classList.contains('is-open') && !event.target.closest('.nav')) closeMenu();
+    });
+  }
+
+  /* ---------------- Header elevation on scroll (sentinel, not a scroll listener) ---------------- */
+  var header = document.getElementById('siteHeader');
+  var sentinel = document.getElementById('top-sentinel');
+  if (header && sentinel && supportsIO) {
+    new IntersectionObserver(function (entries) {
+      header.classList.toggle('is-scrolled', !entries[0].isIntersecting);
+    }, { threshold: 0 }).observe(sentinel);
+  } else if (header) {
+    header.classList.add('is-scrolled');
+  }
+
+  /* ---------------- Scroll reveals ---------------- */
+  var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  if (supportsIO && !reduceMotion) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.12 });
+    reveals.forEach(function (el) { revealObserver.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* ---------------- Active nav link ---------------- */
+  var navAnchors = Array.prototype.slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
+  if (supportsIO && navAnchors.length) {
+    var sections = navAnchors.map(function (a) {
+      return document.querySelector(a.getAttribute('href'));
+    });
+    var activeObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var index = sections.indexOf(entry.target);
+        navAnchors.forEach(function (a, i) {
+          a.classList.toggle('is-active', i === index);
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    sections.forEach(function (s) { if (s) activeObserver.observe(s); });
+  }
+
+  /* ---------------- Hero pointer glow (desktop pointers only) ---------------- */
+  var glow = document.getElementById('heroGlow');
+  var hero = document.getElementById('top');
+  if (glow && hero && canHover && !reduceMotion) {
+    var pending = false;
+    var lastEvent = null;
+    hero.addEventListener('pointermove', function (event) {
+      lastEvent = event;
+      if (pending) return;
+      pending = true;
+      window.requestAnimationFrame(function () {
+        var rect = hero.getBoundingClientRect();
+        glow.style.setProperty('--mx', (lastEvent.clientX - rect.left) + 'px');
+        glow.style.setProperty('--my', (lastEvent.clientY - rect.top) + 'px');
+        glow.style.opacity = '1';
+        pending = false;
+      });
+    }, { passive: true });
+    hero.addEventListener('pointerleave', function () { glow.style.opacity = '0'; });
+  }
+})();
+</script>
+
+</body>
+</html>
